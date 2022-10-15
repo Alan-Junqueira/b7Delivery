@@ -14,7 +14,6 @@ import { Tenant } from '../../types/Tenant';
 import { User } from '../../types/User';
 import { useAuthContext } from '../../contexts/auth';
 import { Unfounded } from '../../components/Transformed/Unfounded';
-import { TesteSvg } from '../../components/Transformed/teste';
 
 const Home = (data: Props) => {
   const { setToken, setUser } = useAuthContext();
