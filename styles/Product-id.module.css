@@ -1,0 +1,96 @@
+.container {
+  background-color: #ffffff;
+  padding-bottom: 24px;
+}
+
+.headerArea {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  top: 64px;
+}
+
+.headerBg {
+  height: 383px;
+  background-color: #333;
+  background-image: url('/assets/product-bg.png');
+  background-´position: top center;
+  background-repeat: no-repeat;
+}
+
+.productImage {
+  text-align: center;
+  margin-top: -200px;
+}
+
+.productImage img {
+  width: 75%;
+}
+
+.section {
+  padding: 24px;
+}
+
+.category {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #1b1b1b;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 48px;
+
+  color: #1b1b1b;
+
+  position: relative;
+  border-bottom: 1.5px solid #000;
+  padding-bottom: 24px;
+  width: fit-content;
+}
+
+.section hr {
+  margin-top: -1.5px;
+  border-top: 1.5px solid #e2e2e2;
+}
+
+.description {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 24px 0 32px;
+
+  color: rgba(27, 27, 27, 0.5);
+}
+
+.qtText {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #1b1b1b;
+  margin-bottom: 16px;
+}
+
+.qtArea {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 50px;
+}
+
+.qtAreaLeft {
+}
+
+.qtAreaRight {
+  flex: 1;
+  text-align: right;
+
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 48px;
+  text-align: right;
+}

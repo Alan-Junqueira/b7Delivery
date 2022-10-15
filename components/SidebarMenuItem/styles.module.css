@@ -1,0 +1,19 @@
+.container {
+}
+
+.container span {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #6a7d8b;
+  margin-left: 22px;
+}
+
+.disabled {
+  text-decoration: line-through;
+}
+
+.logout {
+  margin-top: 100px;
+}

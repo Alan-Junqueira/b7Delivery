@@ -1,0 +1,32 @@
+.container {
+  background-color: #fff;
+  display: flex;
+  padding: 6px;
+  gap: 13px;
+  border-radius: 5px;
+  border: 1px solid #FFF
+}
+
+.button {
+  width: 48px;
+  height: 48px;
+  background-color: #f9f9fb;
+  border-radius: 5px;
+  border: 0;
+  /* background-image: url('/assets/search.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: center */
+}
+
+.input {
+  outline: 0;
+  border: 0;
+  flex: 1;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 34px;
+
+  color: #979797;
+}

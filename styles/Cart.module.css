@@ -1,0 +1,146 @@
+.container {
+  background-color: #fff;
+  padding: 34px 24px;
+}
+
+.productsQuantity {
+  display: flex;
+  margin-top: 24px;
+  padding-block: 19px;
+  border-top: 1.5px solid rgba(27, 27, 27, 0.1);
+  border-bottom: 1.5px solid rgba(27, 27, 27, 0.1);
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #1b1b1b;
+}
+
+.productsList {
+}
+
+.shippingArea {
+  margin-top: 31px;
+  display: flex;
+  flex-direction: column;
+}
+
+.shippingTitle {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 16px;
+
+  color: #6a7d8b;
+}
+
+.shippingForm {
+  display: flex;
+  gap: 14px;
+}
+
+.shippingInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  padding: 24px 32px;
+  margin-top: 16px;
+
+  border-radius: 8px;
+  background-color: #f9f9fa;
+}
+
+.shippingStreet {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+
+  color: #6a7d8b;
+}
+
+.shippingTimePrice {
+  display: flex;
+}
+
+.shippingTime {
+  flex: 1;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #000000;
+}
+
+.shippingPrice {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.resumeArea {
+  padding: 48px 32px;
+  background: #f9f9fb;
+  border-radius: 8px;
+  margin-top: 16px;
+  color: #000000;
+}
+
+.resumeArea div:nth-child(1) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resumeSubtotal {
+  margin-bottom: 24px;
+
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.resumeSubtotal p {
+  font-weight: 400;
+}
+
+.resumeSubtotal span {
+  font-weight: 500;
+}
+
+.resumeShipping {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 16px;
+  line-height: 19px;
+
+  padding-bottom: 25px;
+  border-bottom: 1px dashed #96a3ab;
+}
+
+.resumeShipping p {
+  font-weight: 400;
+}
+
+.resumeShipping span {
+  font-weight: 500;
+}
+
+.resumeTotal {
+  margin-top: 24px;
+  margin-bottom: 40px;
+}
+
+.resumeTotal p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.resumeTotal span {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+}

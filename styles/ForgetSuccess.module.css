@@ -1,0 +1,40 @@
+.container {
+  background-color: #fff;
+  padding: 30px 24px 48px;
+}
+
+.iconArea {
+  display: flex;
+  justify-content: center;
+  margin: 130px auto 40px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+
+  margin-bottom: 24px;
+  text-align: center;
+
+  color: #1b1b1b;
+}
+
+.subtitle {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+
+  color: rgba(27, 27, 27, 0.8);
+
+  margin: 0 auto 40px;
+  width: 80%;
+}
+.inputEmail {
+  margin-bottom: 32px;
+}
+.signinButton{
+  display: block;
+  margin-bottom: 50px
+}

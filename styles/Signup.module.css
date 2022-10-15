@@ -1,0 +1,74 @@
+.container {
+  background-color: #fff;
+  padding: 30px 24px 48px;
+}
+
+.tenantName {
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 47px;
+
+  margin-top: 50px;
+  margin-bottom: 40px;
+
+  text-align: center;
+
+  color: #1b1b1b;
+}
+
+.subtitle {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+
+  color: rgba(27, 27, 27, 0.8);
+
+  margin: auto;
+  width: 220px;
+  padding-bottom: 40px;
+  border-bottom: 1.5px solid #000;
+  position: relative;
+}
+
+.hr {
+  border-top: 1.5px solid #e2e2e2;
+  margin-top: -0.75px;
+}
+
+.formArea {
+  margin-top: 56px;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputName {
+  margin-bottom: 32px;
+}
+
+.inputEmail {
+  margin-bottom: 32px;
+}
+.inputPassword {
+  margin-bottom: 32px;
+}
+.signinButton {
+  margin-bottom: 32px;
+}
+
+.forgetArea {
+  margin: 16px auto 100px;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+
+  color: #1b1b1b;
+}
+
+.link {
+  font-weight: 600;
+  color: #000;
+  margin-left: 5px;
+}

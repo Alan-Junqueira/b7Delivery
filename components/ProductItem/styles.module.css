@@ -1,0 +1,41 @@
+.container {
+  background-color: #ffffff;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+
+  padding: 17px 13px;
+;
+
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.image {
+  width: 80%;
+  margin-inline: auto;
+}
+
+.category {
+  font-weight: 500;
+  font-size: 8px;
+  line-height: 10px;
+  margin-top: 8px;
+  
+  color: #1B1B1B;
+}
+
+.productName {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+
+  color: #1b1b1b;
+  margin: 8px 0 3px;
+}
+
+.price {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+}
