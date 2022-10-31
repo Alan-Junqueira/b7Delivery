@@ -1,0 +1,17 @@
+.container {
+  background-color: #fff;
+  padding: 34px 24px;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.lineHeader {
+  margin-top: 24px;
+  border-top: 1.5px solid rgba(27, 27, 27, 0.1);
+}
+
+.list {
+  flex: 1;
+}

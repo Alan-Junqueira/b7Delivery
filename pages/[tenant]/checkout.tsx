@@ -56,17 +56,17 @@ const Checkout = (data: Props) => {
   const [shippingAddress, setShippingAddress] = useState<Address>();
 
   const handleChangeAddress = () => {
-    // router.push(`/${tenant?.slug}/myaddresses`)
-    setShippingAddress({
-      id: 1,
-      cep: '99999999',
-      street: 'Rua das Flores',
-      number: '321',
-      district: 'Jardins',
-      city: 'São Paulo',
-      state: 'SP'
-    });
-    setShippingPrice(9.5);
+    router.push(`/${tenant?.slug}/myaddresses`)
+    // setShippingAddress({
+    //   id: 1,
+    //   cep: '99999999',
+    //   street: 'Rua das Flores',
+    //   number: '321',
+    //   district: 'Jardins',
+    //   city: 'São Paulo',
+    //   state: 'SP'
+    // });
+    // setShippingPrice(9.5);
   };
 
   // Payments

@@ -1,3 +1,4 @@
+import { Address } from '../types/Address';
 import { CartItem } from '../types/CartItem';
 import { Product } from '../types/Product';
 import { Tenant } from '../types/Tenant';
@@ -60,24 +61,41 @@ export const useApi = (tenantSlug: string) => ({
     };
   },
   getCartProducts: async (cartCookie: string) => {
-    let cart: CartItem[] =[]
+    let cart: CartItem[] = [];
 
-    if(!cartCookie) return cart;
+    if (!cartCookie) return cart;
 
-    const cartJson = JSON.parse(cartCookie)
-    for( let i in cartJson){
-      if(cartJson[i].id && cartJson[i].quantity ){
+    const cartJson = JSON.parse(cartCookie);
+    for (let i in cartJson) {
+      if (cartJson[i].id && cartJson[i].quantity) {
         const product = {
           ...TEMPORARYoneProduct,
-          id: cartJson[i].id,
+          id: cartJson[i].id
         };
         cart.push({
           quantity: cartJson[i].quantity,
           product
-        })
+        });
       }
     }
 
     return cart;
+  },
+  getUserAddresses: async (email: string) => {
+    const addresses: Address[] = [];
+
+    for (let i = 0; i < 4; i++) {
+      addresses.push({
+        id: i + 1,
+        street: 'Rua das Flores',
+        number: `${i + 1}00`,
+        cep: '9999999',
+        city: 'São Paulo',
+        district: 'Jardins',
+        state: 'SP'
+      });
+    }
+
+    return addresses;
   }
 });
