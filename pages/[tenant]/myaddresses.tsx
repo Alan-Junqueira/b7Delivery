@@ -47,7 +47,7 @@ const MyAddresses = (data: Props) => {
     }
   };
   const handleAddressEdit = (id: number) => {
-    console.log(`Editando o ${id}`);
+    router.push(`/${data.tenant.slug}/address/${id}`);
   };
 
   const handleAddressDelete = (id: number) => {
@@ -55,7 +55,7 @@ const MyAddresses = (data: Props) => {
   };
 
   const handleNewAddress = () => {
-    router.push(`/${tenant?.slug}/newaddress`);
+    router.push(`/${data.tenant.slug}/address/new`);
   };
 
   // Menu Events
