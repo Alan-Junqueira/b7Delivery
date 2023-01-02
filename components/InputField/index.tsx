@@ -11,6 +11,7 @@ type Props = {
   password?: boolean;
   shipping?: boolean;
   id?: string;
+  warning?: boolean;
 };
 
 const InputField = ({
@@ -20,7 +21,8 @@ const InputField = ({
   value,
   password,
   shipping,
-  id
+  id,
+  warning
 }: Props) => {
   const [showPassword, setShowPassword] = useState(false);
   const [focused, setFocused] = useState(false);
@@ -29,7 +31,7 @@ const InputField = ({
     <div
       className={styles.container}
       style={{
-        borderColor: focused ? color : '#F9F9FB',
+        borderColor: warning ? '#FF0000' : focused ? color : '#F9F9FB',
         backgroundColor: focused ? '#FFFFFF' : '#F9F9FB',
         borderRadius: shipping ? '8px' : '4px'
       }}

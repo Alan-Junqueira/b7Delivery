@@ -36,6 +36,8 @@ const NewAddress = (data: Props) => {
   const formatter = useFormatter();
   const api = useApi(data.tenant.slug);
 
+  const [errorFields, setErrorFields] = useState<string[]>([]);
+
   const [addressCep, setAddressCep] = useState<string>('');
   const [addressStreet, setAddressStreet] = useState<string>('');
   const [addressNumber, setAddressNumber] = useState<string>('');
@@ -44,8 +46,45 @@ const NewAddress = (data: Props) => {
   const [addressState, setAddressState] = useState<string>('');
   const [addressComplement, setAddressComplement] = useState<string>('');
 
+  const verifyAddress = () => {
+    let newErrorFields = [];
+    let approved = true;
+
+    //? /[^0-9]/g
+    //TODO: Remove o que não é número.
+    if (addressCep.replaceAll(/[^0-9]/g, '').length !== 8) {
+      newErrorFields.push('cep');
+      approved = false;
+    }
+
+    if (addressStreet.length <= 2) {
+      newErrorFields.push('street');
+      approved = false;
+    }
+
+    if (addressDistrict.length <= 2) {
+      newErrorFields.push('district');
+      approved = false;
+    }
+
+    if (addressCity.length <= 2) {
+      newErrorFields.push('city');
+      approved = false;
+    }
+
+    if (addressState.length !== 2) {
+      newErrorFields.push('state');
+      approved = false;
+    }
+
+    setErrorFields(newErrorFields);
+
+    return approved;
+  };
+
   const handleNewAddress = () => {
-    router.push(`/${data.tenant.slug}/address/new`);
+    if (verifyAddress()) {
+    }
   };
 
   return (
@@ -71,6 +110,7 @@ const NewAddress = (data: Props) => {
               id="addressCep"
               value={addressCep}
               onChange={(value) => setAddressCep(value)}
+              warning={errorFields.includes('cep')}
             />
           </div>
         </div>
@@ -84,6 +124,7 @@ const NewAddress = (data: Props) => {
               id="addressStreet"
               value={addressStreet}
               onChange={(value) => setAddressStreet(value)}
+              warning={errorFields.includes('street')}
             />
           </div>
 
@@ -95,6 +136,7 @@ const NewAddress = (data: Props) => {
               id="addressNumber"
               value={addressNumber}
               onChange={(value) => setAddressNumber(value)}
+              warning={errorFields.includes('number')}
             />
           </div>
         </div>
@@ -108,6 +150,7 @@ const NewAddress = (data: Props) => {
               id="addressDistrict"
               value={addressDistrict}
               onChange={(value) => setAddressDistrict(value)}
+              warning={errorFields.includes('district')}
             />
           </div>
         </div>
@@ -121,6 +164,7 @@ const NewAddress = (data: Props) => {
               id="addressCity"
               value={addressCity}
               onChange={(value) => setAddressCity(value)}
+              warning={errorFields.includes('city')}
             />
           </div>
         </div>
@@ -134,6 +178,7 @@ const NewAddress = (data: Props) => {
               id="addressState"
               value={addressState}
               onChange={(value) => setAddressState(value)}
+              warning={errorFields.includes('state')}
             />
           </div>
         </div>
@@ -147,6 +192,7 @@ const NewAddress = (data: Props) => {
               id="addressComplement"
               value={addressComplement}
               onChange={(value) => setAddressComplement(value)}
+              warning={errorFields.includes('complement')}
             />
           </div>
         </div>
