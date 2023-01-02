@@ -23,7 +23,8 @@ import { AddressItem } from '../../components/AddressItem';
 
 const MyAddresses = (data: Props) => {
   const { setToken, setUser } = useAuthContext();
-  const { tenant, setTenant } = useAppContext();
+  const { tenant, setTenant, setShippingAddress, setShippingPrice } =
+    useAppContext();
 
   useEffect(() => {
     setTenant(data.tenant);
@@ -34,20 +35,44 @@ const MyAddresses = (data: Props) => {
 
   const router = useRouter();
   const formatter = useFormatter();
+  const api = useApi(data.tenant.slug);
+
+  const handleAddressSelect = async (address: Address) => {
+    const price = await api.getShippingPrice(address);
+    if (price) {
+      setShippingAddress(address);
+      setShippingPrice(price);
+      //* Salvar no contexto endereço e frete
+      router.push(`/${data.tenant.slug}/checkout`);
+    }
+  };
+  const handleAddressEdit = (id: number) => {
+    console.log(`Editando o ${id}`);
+  };
+
+  const handleAddressDelete = (id: number) => {
+    console.log(`Deletando o ${id}`);
+  };
 
   const handleNewAddress = () => {
     router.push(`/${tenant?.slug}/newaddress`);
   };
 
-  const handleAddressSelect = (address: Address) => {
+  // Menu Events
+  const [menuOpened, setMenuOpened] = useState(0);
 
+  const handleMenuEvent = (event: MouseEvent) => {
+    const tagName = (event.target as Element).tagName;
+    if (!['path', 'svg'].includes(tagName)) {
+      setMenuOpened(0);
+    }
   };
-  const handleAddressEdit = (id: number) => {
 
-  };
-  const handleAddressDelete = (id: number) => {
-
-  };
+  useEffect(() => {
+    window.removeEventListener('click', handleMenuEvent);
+    window.addEventListener('click', handleMenuEvent);
+    return () => window.removeEventListener('click', handleMenuEvent);
+  }, [menuOpened]);
 
   return (
     <div className={styles.container}>
@@ -71,6 +96,8 @@ const MyAddresses = (data: Props) => {
             onSelect={handleAddressSelect}
             onEdit={handleAddressEdit}
             onDelete={handleAddressDelete}
+            menuOpened={menuOpened}
+            setMenuOpened={setMenuOpened}
           />
         ))}
       </ul>
@@ -118,7 +145,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const user = await api.authorizeToken(token as string);
 
   if (!user) {
-    return { redirect: { destination: '/login', permanent: false } };
+    return {
+      redirect: { destination: `${tenant.slug}/login`, permanent: false }
+    };
   }
 
   // GET Addresses from logged User

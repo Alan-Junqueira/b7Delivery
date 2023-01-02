@@ -22,7 +22,7 @@ import { Address } from '../../types/Address';
 
 const Checkout = (data: Props) => {
   const { setToken, setUser } = useAuthContext();
-  const { tenant, setTenant } = useAppContext();
+  const { tenant, setTenant, shippingAddress, shippingPrice } = useAppContext();
 
   const router = useRouter();
   const formatter = useFormatter();
@@ -52,21 +52,10 @@ const Checkout = (data: Props) => {
   const [cart, setCart] = useState<CartItem[]>(data.cart);
 
   // Shipping
-  const [shippingPrice, setShippingPrice] = useState(0);
-  const [shippingAddress, setShippingAddress] = useState<Address>();
 
   const handleChangeAddress = () => {
-    router.push(`/${tenant?.slug}/myaddresses`)
-    // setShippingAddress({
-    //   id: 1,
-    //   cep: '99999999',
-    //   street: 'Rua das Flores',
-    //   number: '321',
-    //   district: 'Jardins',
-    //   city: 'São Paulo',
-    //   state: 'SP'
-    // });
-    // setShippingPrice(9.5);
+    console.log(tenant);
+    router.push(`/${tenant?.slug}/myaddresses`);
   };
 
   // Payments

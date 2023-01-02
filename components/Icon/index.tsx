@@ -10,6 +10,8 @@ import { CheckedSvg } from './Checked';
 import { DescountSvg } from './Descount';
 import { MoneySymbleSvg } from './MoneySymble';
 import { Dots } from './Dots';
+import { Edit } from './Edit';
+import { Delete } from './Delete';
 
 type Props = {
   icon: string;
@@ -29,6 +31,8 @@ const Icon = ({ color, height, icon, width }: Props) => {
       {icon === 'money' && <MoneySymbleSvg color={color} />}
       {icon === 'rightArrow' && <ArrowRight color={color} />}
       {icon === 'dots' && <Dots color={color} />}
+      {icon === 'edit' && <Edit color={color} />}
+      {icon === 'delete' && <Delete color={color} />}
     </div>
   );
 };
