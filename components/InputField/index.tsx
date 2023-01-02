@@ -10,6 +10,7 @@ type Props = {
   onChange: (newValue: string) => void;
   password?: boolean;
   shipping?: boolean;
+  id?: string;
 };
 
 const InputField = ({
@@ -18,7 +19,8 @@ const InputField = ({
   placeholder,
   value,
   password,
-  shipping
+  shipping,
+  id
 }: Props) => {
   const [showPassword, setShowPassword] = useState(false);
   const [focused, setFocused] = useState(false);
@@ -28,20 +30,20 @@ const InputField = ({
       className={styles.container}
       style={{
         borderColor: focused ? color : '#F9F9FB',
-        backgroundColor: focused  ? '#FFFFFF' : '#F9F9FB',
+        backgroundColor: focused ? '#FFFFFF' : '#F9F9FB',
         borderRadius: shipping ? '8px' : '4px'
       }}
     >
       <input
         type={password ? (showPassword ? 'text' : 'password') : 'text'}
         className={styles.input}
+        id={id}
         placeholder={placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         onFocus={(e) => setFocused(true)}
         onBlur={(e) => setFocused(false)}
-        style={{
-        }}
+        style={{}}
       />
 
       {password && (
