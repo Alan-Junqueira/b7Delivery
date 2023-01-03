@@ -1,5 +1,5 @@
 import { GetServerSideProps } from 'next';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { getCookie, setCookie } from 'cookies-next';
 
 import { useAppContext } from '../../contexts/App';
@@ -26,6 +26,7 @@ const Checkout = (data: Props) => {
 
   const router = useRouter();
   const formatter = useFormatter();
+  const api = useApi(data.tenant.slug);
 
   // Payment Method
   const [cardActive, setCardActive] = useState(false);
@@ -85,7 +86,22 @@ const Checkout = (data: Props) => {
     setSubtotal(sub);
   }, [cart]);
 
-  const handleFinish = () => {};
+  const handleFinish = async () => {
+    if (shippingAddress) {
+      const order = await api.setOrder(
+        shippingAddress,
+        paymentMethod,
+        cashAdvanceValue,
+        cupom,
+        data.cart
+      );
+      if (order) {
+        router.push(`/${data.tenant.slug}/order/${order.id}`);
+      } else {
+        alert('Ocorreu um erro! Tente mais tarde!');
+      }
+    }
+  };
 
   return (
     <div className={styles.container}>
