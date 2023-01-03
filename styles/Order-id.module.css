@@ -1,0 +1,173 @@
+.container {
+  background-color: #fff;
+  padding: 34px 24px;
+}
+
+.lineHeader {
+  margin-top: 24px;
+  border-top: 1.5px solid rgba(27, 27, 27, 0.1);
+}
+
+.address {
+  margin-top: 26px;
+  margin-bottom: 24px;
+}
+
+.address label {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #1b1b1b;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.paymentMethod {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.paymentMethod p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #1b1b1b;
+}
+
+.paymentMethod .paymentMethods {
+  display: flex;
+  justify-content: space-between;
+
+  gap: 24px;
+}
+
+.cashAdvance {
+  margin-bottom: 24px;
+}
+
+.cashAdvance p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+
+  margin-bottom: 8px;
+
+  color: #1b1b1b;
+}
+
+.discountCoupon {
+  margin-bottom: 40px;
+}
+
+.discountCoupon p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+
+  margin-bottom: 8px;
+
+  color: #1b1b1b;
+}
+
+.productsQuantity {
+  display: flex;
+  margin-top: 24px;
+  padding-block: 19px;
+  border-top: 1.5px solid rgba(27, 27, 27, 0.1);
+  border-bottom: 1.5px solid rgba(27, 27, 27, 0.1);
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #1b1b1b;
+}
+
+.productsList {
+}
+
+.resumeArea {
+  padding: 48px 32px;
+  background: #f9f9fb;
+  border-radius: 8px;
+  margin-top: 40px;
+  color: #000000;
+}
+
+.resumeArea > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resumeSubtotal {
+  margin-bottom: 24px;
+
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.resumeSubtotal p {
+  font-weight: 400;
+}
+
+.resumeSubtotal span {
+  font-weight: 500;
+}
+
+.resumeDiscount {
+  margin-bottom: 24px;
+
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.resumeDiscount p {
+  font-weight: 400;
+}
+
+.resumeDiscount span {
+  font-weight: 500;
+}
+
+.resumeShipping {
+
+  font-size: 16px;
+  line-height: 19px;
+
+  padding-bottom: 25px;
+  border-bottom: 1px dashed #96a3ab;
+}
+
+.resumeShipping p {
+  font-weight: 400;
+}
+
+.resumeShipping span {
+  font-weight: 500;
+}
+
+.resumeTotal {
+  margin-top: 24px;
+  margin-bottom: 40px;
+}
+
+.resumeTotal p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.resumeTotal span {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.cupomInput {
+  display: flex;
+  gap: 14px;
+}

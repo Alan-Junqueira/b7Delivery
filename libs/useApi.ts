@@ -158,5 +158,8 @@ export const useApi = (tenantSlug: string) => ({
     cart: CartItem[]
   ) => {
     return TEMPORARYorder
+  },
+  getOrder: async (orderId: number) => {
+    return TEMPORARYorder
   }
 });
