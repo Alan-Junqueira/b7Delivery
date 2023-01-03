@@ -98,8 +98,25 @@ export const useApi = (tenantSlug: string) => ({
 
     return addresses;
   },
-
-  getShippingPrice: async(address: Address) => {
+  getUserAddress: async (addressId: number) => {
+    let address: Address = {
+      id: addressId,
+      street: 'Rua das Flores',
+      number: `${addressId}00`,
+      cep: '9999999',
+      city: 'São Paulo',
+      district: 'Jardins',
+      state: 'SP'
+    }
+    return address
+  },
+  addUserAddress: async (address: Address) => {
+    return { ...address, id: 9 }
+  },
+  editUserAddress: async (newAddressData: Address) => {
+    return true
+  },
+  getShippingPrice: async (address: Address) => {
     return 9.16
   }
 });

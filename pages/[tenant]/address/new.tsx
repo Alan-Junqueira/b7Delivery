@@ -82,8 +82,26 @@ const NewAddress = (data: Props) => {
     return approved;
   };
 
-  const handleNewAddress = () => {
+  const handleNewAddress = async () => {
     if (verifyAddress()) {
+      let address: Address = {
+        id: 0,
+        cep: addressCep,
+        street: addressStreet,
+        number: addressNumber,
+        district: addressDistrict,
+        city: addressCity,
+        state: addressState,
+        complement: addressComplement
+      };
+
+      let newAddress = await api.addUserAddress(address);
+
+      if (newAddress.id > 0) {
+        router.push(`/${data.tenant.slug}/myaddresses`);
+      } else {
+        alert(`Ocorreu um erro! Tente mais tarde`);
+      }
     }
   };
 
@@ -96,7 +114,7 @@ const NewAddress = (data: Props) => {
       <Header
         title="Novo Endereço"
         backColor={tenant?.mainColor}
-        backHref={`/${tenant?.slug}/checkout`}
+        backHref={`/${tenant?.slug}/myaddresses`}
       />
       <div className={styles.lineHeader}></div>
 
