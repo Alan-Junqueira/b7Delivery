@@ -116,6 +116,9 @@ export const useApi = (tenantSlug: string) => ({
   editUserAddress: async (newAddressData: Address) => {
     return true
   },
+  deleteUserAddress: async (addressId: number) => {
+    return true
+  },
   getShippingPrice: async (address: Address) => {
     return 9.16
   }
