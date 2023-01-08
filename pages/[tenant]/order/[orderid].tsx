@@ -40,6 +40,38 @@ const OrderId = (data: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    if (data.order.status !== 'delivered') {
+      setTimeout(() => {
+        router.reload();
+      }, 60000); //? 60seconds
+    }
+  }, []);
+
+  const orderStatusList = {
+    preparing: {
+      label: 'Preparando',
+      longLabel: 'Preparando o seu pedido...',
+      backgroundColor: '#FEFAE6',
+      fontColor: '#D4BC34',
+      percentage: 25
+    },
+    sent: {
+      label: 'Enviado',
+      longLabel: 'Enviamos o seu pedido!',
+      backgroundColor: '#F1F3F8',
+      fontColor: '#758CBD',
+      percentage: 75
+    },
+    delivered: {
+      label: 'Entregue',
+      longLabel: 'Seu pedido foi entregue',
+      backgroundColor: '#F1F8F6',
+      fontColor: '#6AB70A',
+      percentage: 100
+    }
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -54,6 +86,64 @@ const OrderId = (data: Props) => {
         backHref={`/${tenant?.slug}`}
       />
       <div className={styles.lineHeader}></div>
+
+      {data.order.status !== 'delivered' && (
+        <div
+          className={styles.statusArea}
+          style={{
+            backgroundColor: orderStatusList[data.order.status].backgroundColor,
+            color: orderStatusList[data.order.status].fontColor
+          }}
+        >
+          <h3 className={styles.statusLongLabel}>
+            {orderStatusList[data.order.status].longLabel}
+          </h3>
+          <div className={styles.statusPercentage}>
+            <div
+              className={styles.statusPercentageBar}
+              style={{
+                width: `${orderStatusList[data.order.status].percentage}%`,
+                backgroundColor: orderStatusList[data.order.status].fontColor
+              }}
+            ></div>
+          </div>
+          <span className={styles.statusMessage}>
+            Aguardando mudança de status...
+          </span>
+        </div>
+      )}
+
+      <div className={styles.orderInfoArea}>
+        <span
+          className={styles.orderInfoStatus}
+          style={{
+            backgroundColor: orderStatusList[data.order.status].backgroundColor,
+            color: orderStatusList[data.order.status].fontColor
+          }}
+        >
+          {orderStatusList[data.order.status].label}
+        </span>
+        <span className={styles.orderInfoQuantity}>
+          {data.order.products.length}
+          {data.order.products.length === 1 ? ' item' : ' itens'}
+        </span>
+        <span className={styles.orderInfoDate}>
+          {formatter.formatDate(data.order.orderDate)}
+        </span>
+      </div>
+
+      <ul className={styles.productsList}>
+        {data.order.products.map((cartItem, index) => (
+          <CartProductItem
+            key={index}
+            color={tenant?.mainColor}
+            quantity={cartItem.quantity}
+            product={cartItem.product}
+            onChange={() => {}}
+            noEdit
+          />
+        ))}
+      </ul>
 
       <div className={styles.address}>
         <label htmlFor="address">Endereço</label>
@@ -113,24 +203,6 @@ const OrderId = (data: Props) => {
           />
         </div>
       )}
-
-      <h3 className={styles.productsQuantity}>
-        {data.order.products.length}
-        {data.order.products.length === 1 ? 'item' : 'itens'}
-      </h3>
-
-      <ul className={styles.productsList}>
-        {data.order.products.map((cartItem, index) => (
-          <CartProductItem
-            key={index}
-            color={tenant?.mainColor}
-            quantity={cartItem.quantity}
-            product={cartItem.product}
-            onChange={() => {}}
-            noEdit
-          />
-        ))}
-      </ul>
 
       <div className={styles.resumeArea}>
         <div className={styles.resumeSubtotal}>

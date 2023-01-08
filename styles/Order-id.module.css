@@ -3,6 +3,80 @@
   padding: 34px 24px;
 }
 
+.statusArea {
+  margin-top: 1.25rem;
+  padding: 1.75rem 1.5rem;
+  border-radius: 4px;
+}
+
+.statusLongLabel {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.25rem;
+}
+
+.statusPercentage {
+  height: 8px;
+  width: 100%;
+
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.statusPercentageBar {
+  height: inherit;
+  border-radius: 8px;
+}
+
+.statusMessage {
+  font-weight: 400;
+  font-size: 0.625rem;
+  line-height: 0.75rem;
+
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.orderInfoArea {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+
+  padding-block: 1rem;
+  border-bottom: 1.5px solid rgba(27, 27, 27, 0.1);
+}
+
+.orderInfoStatus {
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 13px;
+  text-align: center;
+
+  padding: 6px 1rem;
+  border-radius: 4px;
+}
+
+.orderInfoQuantity {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.25rem;
+
+  color: #1b1b1b;
+}
+
+.orderInfoDate {
+  flex: 1;
+  text-align: right;
+
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.25rem;
+
+  color: #b3b3b3;
+}
+
 .lineHeader {
   margin-top: 24px;
   border-top: 1.5px solid rgba(27, 27, 27, 0.1);
@@ -134,7 +208,6 @@
 }
 
 .resumeShipping {
-
   font-size: 16px;
   line-height: 19px;
 
